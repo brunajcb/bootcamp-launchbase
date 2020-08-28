@@ -1,0 +1,170 @@
+AMBIENTE DE DESENVOLVIMENTO
+
+<div> Instalar o homebrew no terminal  
+    Para instalar algum programa executável (app's que precisam de 2 cliques para utilizar) no computador, através do brew, no terminal, o comando é: 
+    brew cask install nome-do-programa
+</div>
+
+<div> Acionar o terminal integrado do VS Code:
+    utilizar command+J
+</div>
+
+<div> instalar o node através do terminal integrado do VS Code:
+
+	brew install node@12 [onde @12 identifica a versão a ser instalada]
+</div>
+
+<div> O que é <const>
+    Um tipo de variável que não se pode mudar o valor original. O termo atribuído a este tipo de variável é único e não pode ser alterado.
+    Ex.: <const name = 'Bruna'>
+    Em qualquer lugar do código onde eu chamar a variável <name> ela sempre retornará 'Bruna'
+</div> 
+
+<div> testar algum código eu posso usar:
+    <console.log()> no código para identificar o que eu quero testar, basta chamar dentro dos ()
+    e no terminal, acionando a pasta onde o arquivo está <cd /caminho-da-pasta/...>
+    então dou o comando <node <nome-do-arquivo>>
+ </div>
+
+<div> Para inserir o valor de uma variável dentro da string de outra variável:
+    utiliza-se a crase dupla: ``.
+    <Ex.:>
+        const name = 'Costa'
+        const name2 = 'Jéssica'
+        const name3 = `Bruna ${name2} ${name}`
+
+        console.log(name3)
+    </Ex.:>
+</div>
+
+<div> Para saber qual o tipo da variável...
+
+    <Ex>
+        const nome= 'Bruna'
+        const idade= 28
+
+        console.log(type of nome)
+            No terminal vai retornar: string
+
+        console.log(typeof idade)
+        No terminal vai retornar: number
+    </Ex>
+    
+</div>
+
+<div> O que são objetos:
+    É o uma coleção de propriedades que recebem valores ou funcionalidades.
+    <ex>
+        const aluno01= {
+            nome= "Bruna",
+            nota= 9.5
+        }
+
+        const aluno02= {
+            nome= "Emanoelton",
+            nota= 8.3
+        }
+    </ex>
+    
+    Dessa forma eu posso acessar apenas uma das propriedades do objeto:
+    <ex>
+        const media= (aluno01.nota + aluno02.nota) /2
+    </ex>
+</div>
+
+<div> ARRAY - Como agrupar + de uma variável numa variável só:
+    Para isso usa-se os []
+    <ex>
+        const alunos = [
+            {
+                nome= "Bruna",
+                nota= 9.8
+            },
+            {
+                nome= "Emanoelton",
+                nota= 8.3
+            },
+            {
+                nome= "Fulano de tal",
+                nota= 6.7
+            }
+        ]
+    </ex>
+
+    Para acessar alguma propriedade do Array eu devo acessar pela posição da conjunto dentro do array, começando a contagem do primeiro item em "0":
+    <ex>
+        const media = (alunos[0].nota + alunos[1].nota + alunos[2].nota)/3
+    </ex>
+
+</div>
+
+<div> Estrutura de repetição com <for>
+    <ex>
+        const alunosDaTurmaA = [ 
+            {
+                nome: 'Bruna',
+                nota: 10
+            },
+            {
+                nome: 'Danilo',
+                nota: 7.2
+            },
+            {
+                nome: 'Elton',
+                nota: 10
+            },
+            {
+                nome: 'Novo aluno',
+                nota: 9.0
+            }
+        ]
+
+        const alunosDaTurmaB = [ 
+            {
+                nome: 'Denizar',
+                nota: 8.2
+            },
+            {
+                nome: 'Bruno',
+                nota: 6.8
+            },
+            {
+                nome: 'Marina',
+                nota: 3.3
+            }
+        ]
+        
+        function calculamedia (alunos){ 
+            for (let i=0; i<alunos.length; i++){
+                console.log(i)
+            }
+        }
+        // onde estou atribuindo um valor inicial de 0 à variável i e depois perguntando se i é menor que o tamanho do objeto alunos,
+        a partir do uso do elemento length para medir o tamanho deste elemento, se for menor o i++ adiciona o valor 1 na variável e recomeça
+        o código e assim vai até que o i fique com o mesmo valor da quantidade de objeto alunos e aí então a repetição se encerra.
+    
+        const media1= calculamedia (alunosDaTurmaA) - Os valores apresentados no terminal devem ser: 0, 1, 2, 3
+        const media2= calculamedia (alunosDaTurmaB) - Os valores apresentados no terminal devem ser: 0, 1, 2
+
+    </ex>
+</div>
+
+<div> Escopos - CAUSA DE VÁRIOS ERROS  
+    
+    Existe o ESCOPO GLOBAL que é tudo que está fora das estrutura internas dos objetos e que podem ser chmados em qualquer parte do código
+    e existe o ESCOBO DE BLOCO que são os escopos das funções, onde os elementos só podem ser acessados internamente, porém, quanto mais
+    for internalizando a estrutura também não será possível acessar os objetos na parte anterior.
+    Basicamente é: quem tá dentro consegue acessar tudo que está acima, mas quem está acima só consegue acessar o que está no seu nível.
+    
+    <ex>
+        function calculamedia (alunos){ 
+            let soma = 0; //estou dizendo que, inicialmente a soma das notas é igual a 0, continua adiante...
+            for (let i=0; i<alunos.length; i++) { //i é 0 e através do i++ vai ficar acrescentando 1 até que 1<alunos.length não seja mais verdade
+                soma = soma + alunos[i].nota // aqui estou dizendo que a soma, vai receber um novo valor que é igual a soma (0, inicialmente) + o valor da nota de alunos na posição i, que inicialmente é 0, ou seja, o primeiro aluno do array. A cada vez que for repetindo o código até o valor de i se comparar a quantidade de alunos vai-se somando a nota também, até chegar ao valor final da soma de todas as notas dos alunos do array.
+            }
+            const media = soma / alunos.length // aqui, mais facilmente defino a média, dividindo a soma das notas, pela quantidade de alunos 
+            return media //para que eu possa usar o valor da média fora do escopo do bloco, ou seja, para que eu possa usar no escopo global
+        }
+    </ex>
+    No exemplo acima se o <let> tivesse ficado dentro do <for> a soma não entraria em loop e pararia de somar na primeira passagem do código.   
+</div>
