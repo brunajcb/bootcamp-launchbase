@@ -19,5 +19,10 @@ Lista com os exercícios realizados aplicando os conhecimentos adquiridos de cad
 - [x] _desafio2-arrays_
   >Acessa propriedades em objetos aninhados em outros objeto e em um array
 
-##
+## Funções, For e Escopo de bloco
+- [x] _desafio3-calc-saldo_
+- [x] _desafio4-calc-bank_ 
+> Desafio 3: Soma receitas e despesas de um indivíduo e informa se o saldo é positivo ou negativo
+> Desafio 4: Realizar cálculos bancários, insere transações na conta de um user, faz balanço de saldo e outras operações bancárias.
+
 
