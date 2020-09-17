@@ -9,7 +9,7 @@ Lista com os exercícios realizados aplicando os conhecimentos adquiridos de cad
 - [x] _atv-verifica-pontos_
   >Verifica os pontos obtidos por funcionários e concede bonificações de acordo com a pontuação alcançada
 
-- [x] _desagio1-calc-imc_
+- [x] _desafio1-calc-imc_
   >Realiza cálculo de IMC de indivíduos e informa se a pessoa está acima do peso ou não
 
 - [x] _desafio1-calc-aposentadoria_
@@ -18,4 +18,6 @@ Lista com os exercícios realizados aplicando os conhecimentos adquiridos de cad
 ## Objetos e Vetores
 - [x] _desafio2-arrays_
   >Acessa propriedades em objetos aninhados em outros objeto e em um array
+
+##
 
